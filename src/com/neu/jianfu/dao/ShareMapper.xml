@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.neu.jianfu.dao.ShareMapper">
+ 
+ <select id="findByPage" resultType="com.neu.jianfu.entity.Share">
+  select * from cn_share where cn_share_title like CONCAT('%',#{0},'%') order by cn_share_title limit #{1},#{2}
+ </select>
+ 
+ </mapper>

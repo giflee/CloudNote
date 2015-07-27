@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.neu.jianfu.dao.UserMapper">
+ 	<insert id="save" parameterType="com.neu.jianfu.entity.User">
+ 		insert into cn_user values(#{cn_user_id,jdbcType=VARCHAR},
+ 								#{cn_user_name,jdbcType=VARCHAR},
+ 								#{cn_user_password,jdbcType=VARCHAR},
+ 								#{cn_user_token,jdbcType=VARCHAR},
+ 								#{cn_user_desc,jdbcType=VARCHAR})
+ 									
+ 	</insert>
+ 	
+ 	<select id="findByName" parameterType="string" resultType="com.neu.jianfu.entity.User">
+ 		select * from cn_user where cn_user_name=#{name}
+ 	</select>
+ 	
+ 	<update id="updatePassword" parameterType="map">
+ 		update cn_user set cn_user_password = #{password} where cn_user_id = #{id}
+ 	</update>
+ </mapper>
